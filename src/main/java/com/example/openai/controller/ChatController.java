@@ -21,4 +21,10 @@ public class ChatController {
 
         return chatService.chat(message);
     }
+
+    @GetMapping("/chatmessage")
+    public String chatmessage(@RequestParam("message") String message) {
+
+        return chatService.chatmessage(message);
+    }
 }
