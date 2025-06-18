@@ -29,4 +29,19 @@ public class ChatService {
                 .getOutput()
                 .getText();
     }
+
+    public String chatplace(String subject, String tone, String message) {
+
+        return chatClient.prompt()
+                .user(message)
+                .system(sp -> sp
+                        .param("subject", subject)
+                        .param("tone", tone)
+                )
+                .call()
+                .chatResponse()
+                .getResult()
+                .getOutput()
+                .getText();
+    }
 }
